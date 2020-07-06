@@ -3,16 +3,17 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 const credentials = require('./googleSecretFile.json');
-const { spreadsheetId } = require('./config');
+const { spreadsheets } = require('./config');
 
 (async () => {
   try {
-    const doc = new GoogleSpreadsheet(spreadsheetId);
+    for (const [name, id] of Object.entries(spreadsheets)) {
+      const doc = new GoogleSpreadsheet(id);
+      await doc.useServiceAccountAuth(credentials);
+      await doc.loadInfo();
 
-    await doc.useServiceAccountAuth(credentials);
-    await doc.loadInfo();
-
-    console.info(doc);
+      console.info(name, doc.title);
+    }
   } catch (error) {
     console.error(error);
   }

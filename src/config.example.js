@@ -1,10 +1,14 @@
 // const config = {
 //   spreadsheets: {
-//     tags: 'tags-shreapsheet-id',
-//     frontend: 'frontend-shreapsheet-id',
-//     nodejs: 'nodejs-shreapsheet-id',
-//     python: 'python-shreapsheet-id',
-//     java: 'java-shreapsheet-id',
+//     general: {
+//       skills: 'tags-shreapsheet-id',
+//     },
+//     professions: {
+//       frontend: 'frontend-shreapsheet-id',
+//       nodejs: 'nodejs-shreapsheet-id',
+//       python: 'python-shreapsheet-id',
+//       java: 'java-shreapsheet-id',
+//     },
 //   },
 // };
 

@@ -1,5 +1,20 @@
 'use strict';
 
-const sayHello = () => 'Hello';
+// Modules
+const path = require('path');
+const fs = require('fs').promises;
+const { GoogleSpreadsheet } = require('google-spreadsheet');
 
-module.exports = { sayHello };
+const saveData = async (data, filename) => {
+  const dataPath = path.resolve(__dirname, 'data', filename);
+  await fs.writeFile(dataPath, data);
+};
+
+const loadDocument = async (id, credentials) => {
+  const document = new GoogleSpreadsheet(id);
+  await document.useServiceAccountAuth(credentials);
+  await document.loadInfo();
+  return document;
+};
+
+module.exports = { saveData, loadDocument };

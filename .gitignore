@@ -9,3 +9,5 @@ npm-debug.log*
 .DS_Store
 /src/config.js
 /src/googleSecretFile.json
+/src/data/*
+!/src/data/.gitkeep
